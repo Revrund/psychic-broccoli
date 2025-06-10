@@ -1,0 +1,343 @@
+/* --- Base Styles --- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #222;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #121212;
+  color: #ddd;
+}
+
+header {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  text-align: center;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark header {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+nav {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  color: #007acc;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #005f99;
+}
+
+.dark nav a {
+  color: #66aaff;
+}
+
+.dark nav a:hover {
+  color: #99cfff;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  transition: padding 0.3s ease;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+.profile-photo {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 1rem;
+  transition: width 0.3s ease;
+}
+
+.dark a {
+  color: #66aaff;
+}
+
+/* Project details toggle */
+.project h3 {
+  cursor: pointer;
+  color: #222;
+}
+
+.dark .project h3 {
+  color: #ddd;
+}
+
+.details {
+  padding-left: 1rem;
+  font-style: italic;
+  color: #555;
+}
+
+.dark .details {
+  color: #aaa;
+}
+
+/* Contact Section */
+.contact a {
+  color: #007acc;
+}
+
+.dark .contact a {
+  color: #66aaff;
+}
+
+/* Fade in animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Fretboard Styles */
+#guitar-scale-viewer {
+  margin-top: 1rem;
+}
+
+#fretboard {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark #fretboard {
+  background-color: #222;
+  border-color: #555;
+}
+
+.string-row {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.dark .string-row {
+  border-color: #444;
+}
+
+.string-row:last-child {
+  border-bottom: none;
+}
+
+.fret {
+  flex: 0 0 40px;
+  height: 40px;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #888;
+  user-select: none;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .fret {
+  border-color: #555;
+  color: #bbb;
+}
+
+.fret:first-child {
+  border-left: none;
+}
+
+.fret:last-child {
+  border-right: none;
+}
+
+.fret.active {
+  background-color: #007acc;
+  color: white;
+  border-color: #005f99;
+}
+
+.dark .fret.active {
+  background-color: #3399ff;
+  color: #fff;
+  border-color: #66aaff;
+}
+
+/* String tuning selector styling */
+.string-row select {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  height: 28px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .string-row select {
+  background-color: #333;
+  color: #eee;
+  border-color: #555;
+}
+
+/* Controls styling (root note, scale, tuning selectors) */
+#guitar-scale-viewer label,
+#guitar-scale-viewer select {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #222;
+  transition: color 0.3s ease;
+}
+
+.dark #guitar-scale-viewer label,
+.dark #guitar-scale-viewer select {
+  color: #ddd;
+}
+
+/* --- Dark mode toggle styles --- */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  color: #333;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.dark .theme-toggle {
+  color: #eee;
+}
+
+/* Toggle switch base */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #007acc;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+.dark input:checked + .slider {
+  background-color: #3399ff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #007acc;
+}
+
+/* --- Responsive / Mobile styles --- */
+@media (max-width: 600px) {
+  header nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .profile-photo {
+    width: 100px;
+  }
+
+  .theme-toggle {
+    position: static;
+    margin: 1rem auto;
+  }
+
+  /* Stack the controls vertically */
+  #guitar-scale-viewer label,
+  #guitar-scale-viewer select {
+    display: block;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  /* Make fretboard scroll horizontally */
+  #fretboard {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+}
